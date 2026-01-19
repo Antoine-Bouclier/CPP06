@@ -7,10 +7,10 @@ static bool	isChar(const std::string &input)
 
 static bool	isSpecial(const std::string &input)
 {
-	return (input.compare("nan") || input.compare("nanf") ||
-			input.compare("+inf") || input.compare("+inff") ||
-			input.compare("-inf") || input.compare("-inff") ||
-			input.compare("inf") || input.compare("inff"));
+	return (input.compare("nan") == 0 || input.compare("nanf") == 0 ||
+			input.compare("+inf") == 0 || input.compare("+inff") == 0 ||
+			input.compare("-inf") == 0 || input.compare("-inff") == 0 ||
+			input.compare("inf") == 0 || input.compare("inff") == 0);
 }
 
 void	ScalarConverter::convert(const std::string &input)
