@@ -11,8 +11,7 @@ void	toString(T input, std::string &value)
 	std::stringstream	ss;
 
 	ss << input;
-	ss >> value;
-	ss.clear();
+	value = ss.str();
 }
 
 bool isInt(const std::string &s)
@@ -142,7 +141,7 @@ static void printValue(std::string *value)
 	std::cout
 		<< "char: " << value[0] << '\n'
 		<< "int: " << value[1] << '\n'
-		<< "float: " << value[2] << "f\n"
+		<< "float: " << value[2] << '\n'
 		<< "double: " << value[3] <<
 	std::endl;
 }
