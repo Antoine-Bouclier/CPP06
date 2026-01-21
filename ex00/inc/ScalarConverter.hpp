@@ -2,7 +2,6 @@
 #define SCARLARCONVERTER_HPP
 
 #include <iostream>
-#include <array>
 #include <cctype>
 
 class ScalarConverter
