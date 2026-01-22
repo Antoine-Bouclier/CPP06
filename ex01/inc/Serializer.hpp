@@ -6,8 +6,8 @@
 
 struct Data
 {
-	std::string	s1;
-	int			i;
+	std::string		s1;
+	unsigned int	i;
 };
 
 class Serializer
