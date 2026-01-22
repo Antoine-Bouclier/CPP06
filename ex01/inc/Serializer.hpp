@@ -1,0 +1,28 @@
+#ifndef SERIALIZER_HPP
+#define SERIALIZER_HPP
+
+#include <stdint.h>
+#include <iostream>
+
+struct Data
+{
+	std::string	s1;
+	int			i;
+};
+
+class Serializer
+{
+	private:
+		/* -- Constructors -- */
+		Serializer();
+		Serializer(Serializer const &other);
+		/* -- Assignement operator -- */
+		Serializer &operator=(Serializer const &other);
+		/* -- Destructor -- */
+		~Serializer();
+	public:
+		static uintptr_t	serialize(Data* ptr);
+		static Data*	deserialize(uintptr_t raw);
+};
+
+#endif
