@@ -6,7 +6,7 @@ SRC_DIR		=	src/
 OBJ_DIR		=	obj/
 INC_DIR		=	inc/
 
-SRC_FILES	=	main.cpp Base.cpp
+SRC_FILES	=	main.cpp Base.cpp A.cpp B.cpp C.cpp
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 DEP_FILES	=	$(OBJ_FILES:.o=.d)
 
