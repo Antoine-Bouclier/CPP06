@@ -20,12 +20,12 @@ ScalarConverter::~ScalarConverter()
 {
 }
 
-static bool	isChar(const std::string &input)
+bool	ScalarConverter::isChar(const std::string &input)
 {
 	return (input.length() == 1 && !std::isdigit(input[0]));
 }
 
-double	parseInput(const std::string &input, bool &impossible)
+double	ScalarConverter::parseInput(const std::string &input, bool &impossible)
 {
 	double	d;
 
@@ -45,8 +45,7 @@ double	parseInput(const std::string &input, bool &impossible)
 	return d;
 }
 
-
-void	printChar(double d, bool impossible)
+void	ScalarConverter::printChar(double d, bool impossible)
 {
 	std::cout << "char: ";
 	if (impossible || std::isnan(d) || d < 0 || d > 127)
@@ -57,8 +56,7 @@ void	printChar(double d, bool impossible)
 		std::cout << "'" << static_cast<char>(d) << "'\n";
 }
 
-
-void	printInt(double d, bool impossible)
+void	ScalarConverter::printInt(double d, bool impossible)
 {
 	std::cout << "int: ";
 	if (impossible || std::isnan(d) || d < INT_MIN || d > INT_MAX)
@@ -67,8 +65,7 @@ void	printInt(double d, bool impossible)
 		std::cout << static_cast<int>(d) << "\n";
 }
 
-
-void	printFloat(double d, bool impossible)
+void	ScalarConverter::printFloat(double d, bool impossible)
 {
 	std::cout << "float: ";
 	if (impossible)
@@ -92,8 +89,7 @@ void	printFloat(double d, bool impossible)
 	}
 }
 
-
-void	printDouble(double d, bool impossible)
+void	ScalarConverter::printDouble(double d, bool impossible)
 {
 	std::cout << "double: ";
 	if (impossible)
@@ -114,7 +110,6 @@ void	printDouble(double d, bool impossible)
 		std::cout << d << "\n";
 	}
 }
-
 
 void	ScalarConverter::convert(const std::string &input)
 {
