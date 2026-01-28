@@ -27,15 +27,13 @@ bool	isChar(const std::string &input)
 double	parseInput(const std::string &input, bool &impossible)
 {
 	double	d;
+	char	*end;
 
 	impossible = false;
-
 	if (isChar(input))
 		return static_cast<double>(input[0]);
-
-	char *end = NULL;
+	end = NULL;
 	d = std::strtod(input.c_str(), &end);
-
 	if (end == input.c_str() || *end != '\0')
 	{
 		if (!(end && *end == 'f' && *(end + 1) == '\0'))
@@ -66,15 +64,15 @@ void	printInt(double d, bool impossible)
 
 void	printFloat(double d, bool impossible)
 {
+	float	f;
+
 	std::cout << "float: ";
 	if (impossible)
 	{
 		std::cout << "impossible\n";
 		return;
 	}
-
-	float f = static_cast<float>(d);
-
+	f = static_cast<float>(d);
 	if (std::isnan(f))
 		std::cout << "nanf\n";
 	else if (std::isinf(f))
@@ -96,7 +94,6 @@ void	printDouble(double d, bool impossible)
 		std::cout << "impossible\n";
 		return;
 	}
-
 	if (std::isnan(d))
 		std::cout << "nan\n";
 	else if (std::isinf(d))
@@ -113,8 +110,9 @@ void	printDouble(double d, bool impossible)
 void	ScalarConverter::convert(const std::string &input)
 {
 	bool	impossible;
-	double	d = parseInput(input, impossible);
-
+	double	d;
+	
+	d = parseInput(input, impossible);
 	printChar(d, impossible);
 	printInt(d, impossible);
 	printFloat(d, impossible);
