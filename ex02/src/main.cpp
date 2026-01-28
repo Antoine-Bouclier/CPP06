@@ -5,13 +5,6 @@
 
 Base	*generate(void)
 {
-	static bool seeded = false;
-	if (!seeded)
-	{
-		std::srand(time(NULL));
-		seeded = true;
-	}
-
 	int r = std::rand() % 3;
 
 	if (r == 0)
