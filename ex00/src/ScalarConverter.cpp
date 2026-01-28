@@ -28,8 +28,7 @@ double	parseInput(const std::string &input, bool &impossible)
 {
 	double	d;
 	char	*end;
-
-	impossible = false;
+	
 	if (isChar(input))
 		return static_cast<double>(input[0]);
 	end = NULL;
@@ -109,7 +108,7 @@ void	printDouble(double d, bool impossible)
 
 void	ScalarConverter::convert(const std::string &input)
 {
-	bool	impossible;
+	bool	impossible =  false;
 	double	d;
 	
 	d = parseInput(input, impossible);
