@@ -1,31 +1,30 @@
 #include "ScalarConverter.hpp"
 
-#include <cstdlib>
-#include <cerrno>
-#include <limits>
-#include <sstream>
-
-#include <iostream>
-#include <iomanip>
-#include <cstdlib>
-#include <climits>
-#include <cmath>
-#include <cctype>
-
 ScalarConverter::ScalarConverter()
 {
+}
+
+ScalarConverter::ScalarConverter(ScalarConverter const &copy)
+{
+	*this = copy;
 }
 
 ScalarConverter::~ScalarConverter()
 {
 }
 
-bool	ScalarConverter::isChar(const std::string &input)
+ScalarConverter	&ScalarConverter::operator=(ScalarConverter const &src)
+{
+	(void)src;
+	return (*this);
+}
+
+bool	isChar(const std::string &input)
 {
 	return (input.length() == 1 && !std::isdigit(input[0]));
 }
 
-double	ScalarConverter::parseInput(const std::string &input, bool &impossible)
+double	parseInput(const std::string &input, bool &impossible)
 {
 	double	d;
 
@@ -45,7 +44,7 @@ double	ScalarConverter::parseInput(const std::string &input, bool &impossible)
 	return d;
 }
 
-void	ScalarConverter::printChar(double d, bool impossible)
+void	printChar(double d, bool impossible)
 {
 	std::cout << "char: ";
 	if (impossible || std::isnan(d) || d < 0 || d > 127)
@@ -56,7 +55,7 @@ void	ScalarConverter::printChar(double d, bool impossible)
 		std::cout << "'" << static_cast<char>(d) << "'\n";
 }
 
-void	ScalarConverter::printInt(double d, bool impossible)
+void	printInt(double d, bool impossible)
 {
 	std::cout << "int: ";
 	if (impossible || std::isnan(d) || d < INT_MIN || d > INT_MAX)
@@ -65,7 +64,7 @@ void	ScalarConverter::printInt(double d, bool impossible)
 		std::cout << static_cast<int>(d) << "\n";
 }
 
-void	ScalarConverter::printFloat(double d, bool impossible)
+void	printFloat(double d, bool impossible)
 {
 	std::cout << "float: ";
 	if (impossible)
@@ -89,7 +88,7 @@ void	ScalarConverter::printFloat(double d, bool impossible)
 	}
 }
 
-void	ScalarConverter::printDouble(double d, bool impossible)
+void	printDouble(double d, bool impossible)
 {
 	std::cout << "double: ";
 	if (impossible)
