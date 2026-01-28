@@ -28,7 +28,7 @@ double	parseInput(const std::string &input, bool &impossible)
 {
 	double	d;
 	char	*end;
-	
+
 	if (isChar(input))
 		return static_cast<double>(input[0]);
 	end = NULL;
@@ -78,9 +78,7 @@ void	printFloat(double d, bool impossible)
 		std::cout << (f > 0 ? "+inff\n" : "-inff\n");
 	else
 	{
-		std::cout << std::fixed << std::setprecision(
-			(f == static_cast<int>(f)) ? 1 : 6
-		);
+		std::cout << std::fixed << std::setprecision((f == static_cast<int>(f)) ? 1 : 6);
 		std::cout << f << "f\n";
 	}
 }
@@ -99,9 +97,7 @@ void	printDouble(double d, bool impossible)
 		std::cout << (d > 0 ? "+inf\n" : "-inf\n");
 	else
 	{
-		std::cout << std::fixed << std::setprecision(
-			(d == static_cast<int>(d)) ? 1 : 6
-		);
+		std::cout << std::fixed << std::setprecision((d == static_cast<int>(d)) ? 1 : 6);
 		std::cout << d << "\n";
 	}
 }
